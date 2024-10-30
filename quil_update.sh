@@ -7,13 +7,13 @@ echo "... ceremonyclient service stopped"
 echo "2. setting release OS, arch and current version variables..."
 release_os="linux"
 release_arch="amd64"
-current_version="2.0.0.6"
+current_version="2.0.2.3"
 echo "... \$release_os set to \"$release_os\" and \$release_arch set to \"$release_arch\" and \$current_version set to \"$current_version\""
  
 # deleting node (binaries, dgst and sig) files and re-download the same (but latest) required node files in the node folder
 echo "3. deleting node (binaries, dgst and sig) files and re-download the same (but latest) required node files in the node folder..."
 cd ~/ceremonyclient/node
-rm -rf node-*-$release_os-$release_arch*
+rm -rf node-$current_version-$release_os-$release_arch*
 echo "... deleted node (binaries, dgst and sig) files from node folder"
 files=$(curl https://releases.quilibrium.com/release | grep $release_os-$release_arch)
 for file in $files; do
@@ -42,6 +42,8 @@ rm -rf node-linux-amd64
 ln -s node-$current_version-linux-amd64 node-linux-amd64
 rm -rf qclient-linux-amd64
 ln -s qclient-$clientversion-linux-amd64 qclient-linux-amd64 
+rm -rf qclient
+ln -s qclient-$clientversion-linux-amd64 qclient
  
 # start the service again
 echo "6. starting the service again..."
