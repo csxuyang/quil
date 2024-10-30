@@ -7,7 +7,7 @@ echo "... ceremonyclient service stopped"
 echo "2. setting release OS, arch and current version variables..."
 release_os="linux"
 release_arch="amd64"
-current_version="2.0.2.3"
+current_version=$1
 echo "... \$release_os set to \"$release_os\" and \$release_arch set to \"$release_arch\" and \$current_version set to \"$current_version\""
  
 # deleting node (binaries, dgst and sig) files and re-download the same (but latest) required node files in the node folder
