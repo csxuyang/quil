@@ -14,8 +14,8 @@ echo $latest
 echo $current
 
 if [[ $latest == $current ]];then
-    echo "no update"
+    echo "$(date +"%Y-%m-%d %H:%M:%S"):no update"
 else
-    echo "new version update: $latest"
+    echo "$(date +"%Y-%m-%d %H:%M:%S"):new version update: $latest"
     ~/quil/quil_update.sh $latest
 fi
