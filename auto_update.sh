@@ -1,3 +1,5 @@
+#!/bin/bash
+
 get_latest_node_version() {
     curl -s https://releases.quilibrium.com/release | grep -oP 'node-\K[0-9]+(\.[0-9]+){1,4}' | sort -V | tail -n 1
 }
@@ -11,7 +13,7 @@ current=$(get_current_node_version)
 echo $latest
 echo $current
 
-if [[ $latest == $current  ]];then
+if [[ $latest == $current ]];then
     echo "no update"
 else
     echo "new version update: $latest"
